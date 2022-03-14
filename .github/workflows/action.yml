@@ -28,11 +28,11 @@ jobs:
         path: vendor
         key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
         restore-keys: |
-          ${{ runner.os }}-php-   
-
-   - name: Fixing coding standards
+          ${{ runner.os }}-php-
+  
+    - name: Fixing coding standards
       run: |
-        vendor/bin/phpcbf          
+        vendor/bin/phpcbf           
          
     - name: Check coding standards
       run: |

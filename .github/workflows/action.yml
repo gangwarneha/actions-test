@@ -1,4 +1,4 @@
-name: PHP Composer
+name: PHP checks
 
 on:
   push:
@@ -15,29 +15,26 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Validate composer.json and composer.lock
-      run: composer validate --strict
- 
-    - name: Install PHP CodeSniffer
-      run: |
-        composer require --dev dealerdirect/phpcodesniffer-composer-installer
-        composer require --dev drupal/coder
-    
-    - name: Cache CS packages
+      run: composer validate
+
+    - name: Cache Composer packages
+      id: composer-cache
       uses: actions/cache@v2
       with:
         path: vendor
-        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.json') }}
         restore-keys: |
-          ${{ runner.os }}-php-     
-         
-    - name: Check coding standards
-      run: |
-        vendor/bin/phpcs
+          ${{ runner.os }}-php-
 
-    - name: Fixing coding standards
-      run: |
-        vendor/bin/phpcbf
-    - uses: stefanzweifel/git-auto-commit-action@v4
-      with:
-        commit_message: Apply php-cs-fixer changes      
-      
+    - name: Install dependencies
+      if: steps.composer-cache.outputs.cache-hit != 'true'
+      run: composer install --prefer-dist --no-progress --no-suggest
+
+    - name: Run lint
+      run: composer lint
+
+    - name: Run phpcs
+      run: composer phpcs
+
+    - name: Run phpunit
+      run: composer test

@@ -33,4 +33,11 @@ jobs:
     - name: Check coding standards
       run: |
         vendor/bin/phpcs
+
+    - name: Fixing coding standards
+      run: |
+        vendor/bin/phpcbf
+    - uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: Apply php-cs-fixer changes      
       

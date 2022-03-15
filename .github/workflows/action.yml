@@ -31,8 +31,12 @@ jobs:
           ${{ runner.os }}-php-
   
     - name: Fixing coding standards
+      id: cbf
       run: |
         vendor/bin/phpcbf
+      if: ${{ steps.cbf.outcome == 'failure'}}
+        continue-on-error: true
+      run: exit 0  
              
     - uses: stefanzweifel/git-auto-commit-action@v4
       with:

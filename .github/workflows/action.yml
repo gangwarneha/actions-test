@@ -29,10 +29,11 @@ jobs:
         key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
         restore-keys: |
           ${{ runner.os }}-php-
-          
+
     - name: Check coding standards
       run: |
-        vendor/bin/phpcs      
+        vendor/bin/phpcs
+      continue-on-error: true        
   
     - name: Fixing coding standards
       id: cbf

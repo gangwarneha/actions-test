@@ -20,7 +20,6 @@ jobs:
     - name: Install PHP CodeSniffer
       run: |
         composer require --dev dealerdirect/phpcodesniffer-composer-installer
-        composer require --dev drupal/coder
     
     - name: Cache CS packages
       uses: actions/cache@v2

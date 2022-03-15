@@ -31,7 +31,6 @@ jobs:
           ${{ runner.os }}-php-       
   
     - name: Fixing coding standards
-      id: cbf
       run: vendor/bin/phpcbf
       continue-on-error: true
 
@@ -40,8 +39,7 @@ jobs:
         commit_message: Apply php-cs-fixer changes
 
     - name: Check coding standards
-      run: |
-        vendor/bin/phpcs            
+      run: vendor/bin/phpcs            
          
 
      

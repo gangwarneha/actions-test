@@ -29,22 +29,20 @@ jobs:
         key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
         restore-keys: |
           ${{ runner.os }}-php-
+          
+    - name: Check coding standards
+      run: |
+        vendor/bin/phpcs      
   
     - name: Fixing coding standards
       id: cbf
       run: vendor/bin/phpcbf
       continue-on-error: true
 
-    - run: exit 0
-      if: ${{ steps.cbf.outcome == 'failure'}}
-      
-             
     - uses: stefanzweifel/git-auto-commit-action@v4
       with:
         commit_message: Apply php-cs-fixer changes            
          
-    - name: Check coding standards
-      run: |
-        vendor/bin/phpcs
+
      
       

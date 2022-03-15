@@ -35,12 +35,14 @@ jobs:
       run: vendor/bin/phpcbf
       continue-on-error: true
 
+    - run: exit 0
+      if: ${{ steps.cbf.outcome == 'failure'}}
+      
+             
     - uses: stefanzweifel/git-auto-commit-action@v4
       with:
-        commit_message: Apply php-cs-fixer changes
-      if: ${{ steps.cbf.outcome == 'failure'}}
-      run: exit 0
-               
+        commit_message: Apply php-cs-fixer changes            
+         
     - name: Check coding standards
       run: |
         vendor/bin/phpcs

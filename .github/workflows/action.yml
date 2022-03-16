@@ -29,10 +29,20 @@ jobs:
           ${{ runner.os }}-php-       
   
     - name: Fixing coding standards
-      run: vendor/bin/phpcbf
-      continue-on-error: true
+      id: run-phpcbf
+      run: 
+        vendor/bin/phpcbf
+        retVal=$?
+        if [ $retVal -eq 1 ]; then
+            echo "Some Files Fixed"
+            echo '::set-output name=FIXED::true'
+            exit 0
+        fi
+        exit $retVal
 
-    - uses: stefanzweifel/git-auto-commit-action@v4
+    - name: Commit Fixes
+      if: ${{ steps.run-phpcbf.outputs.FIXED }}
+      uses: stefanzweifel/git-auto-commit-action@v4
       with:
         commit_message: Apply php-cs-fixer changes
 

@@ -1,4 +1,0 @@
-name: Fields demo
-type: module
-description: This module is demo module to explore field api.
-core_version_requirement: ^8 || ^9

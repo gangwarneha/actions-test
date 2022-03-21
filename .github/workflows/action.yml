@@ -25,6 +25,7 @@ jobs:
       id: run-phpcbf
       run: |
         vendor/bin/phpcbf
+        echo "hi"
         retVal=$?
         if [ $retVal -eq 1 ] then
             echo "Some Files Fixed"

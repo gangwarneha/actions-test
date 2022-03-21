@@ -23,13 +23,13 @@ jobs:
     
     - name: Fixing coding standards - phpcbf
       id: run-phpcbf
-      run: script.sh
+      run: ls
         
     - name: Commit Fixes
       if: ${{ steps.run-phpcbf.outputs.FIXED }}
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
-        commit_message: Fixing phpcbf changes
+        commit_message: Fixing phpcbf changes 
 
     - name: Check coding standards - phpcs
-      run: vendor/bin/phpcs            
+      run: vendor/bin/phpcs       

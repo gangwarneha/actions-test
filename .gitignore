@@ -39,3 +39,4 @@ web/sites/*/settings.local.php
 node_modules
 sites/*/files
 sites/*/private
+/.editorconfig

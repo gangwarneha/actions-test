@@ -44,8 +44,6 @@ class TextFieldFormatter extends FormatterBase {
    */
   public function viewElements(FieldItemListInterface $items, $langcode) {
     $elements = [];
-    $min = $this->getSetting('mob');
-    $max = $this->getSetting('tab');
 
     foreach ($items as $delta => $item) {
 

@@ -10,7 +10,7 @@ $b = 20;
 $c = $a + $b;
 
 // Add addition here.
-echo "Sum: ", $c;
+echo "Addition: ", $c;
 
 // Add multiplication here...
 $c = $a * $b;

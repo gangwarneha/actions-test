@@ -43,24 +43,6 @@ class TextFieldFormatter extends FormatterBase {
   /**
    * {@inheritdoc}
    */
-  public function settingsForm(array $form, FormStateInterface $form_state) {
-    $form['min'] = [
-      '#title' => $this->t('Mobile'),
-      '#type' => 'number',
-      '#default_value' => $this->getSetting('mob'),
-    ];
-    $form['max'] = [
-      '#title' => $this->t('tablet'),
-      '#type' => 'number',
-      '#default_value' => $this->getSetting('tab'),
-    ];
-
-    return $form;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
   public function viewElements(FieldItemListInterface $items, $langcode) {
     $elements = [];
     $min = $this->getSetting('mob');

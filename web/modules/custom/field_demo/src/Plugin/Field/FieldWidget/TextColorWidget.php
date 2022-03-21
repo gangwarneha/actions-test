@@ -36,7 +36,7 @@ public function settingsForm(array $form, FormStateInterface $form_state) {
 
   $elements['default_color'] = [
     '#type' => 'textfield',
-    '#title' => t('Default color'),
+    '#title' => $this->t('Default color'),
     '#default_value' => $this->getSetting('default_color'),
   ];
 
@@ -50,7 +50,7 @@ public function settingsSummary() {
   $summary = [];
 
   if (!empty($this->getSetting('default_color'))) {
-    $summary[] = t('Default color: @placeholder', [
+    $summary[] = $this->t('Default color: @placeholder', [
       '@placeholder' => $this->getSetting('default_color'),
     ]);
   }

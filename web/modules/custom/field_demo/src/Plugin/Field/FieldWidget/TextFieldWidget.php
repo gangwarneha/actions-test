@@ -25,7 +25,6 @@ class TextFieldWidget extends WidgetBase {
    */
   public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state) {
     $item = $items[$delta];
-    $field_title = $element['#title'];
 
     $element['options']['desktop'] = [
       '#type' => 'textfield',

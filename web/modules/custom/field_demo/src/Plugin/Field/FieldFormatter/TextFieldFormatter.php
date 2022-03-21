@@ -2,13 +2,12 @@
 
 namespace Drupal\field_demo\Plugin\Field\FieldFormatter;
 
-use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Field\FormatterBase;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
- * Create a new formatter for demo_text_field text field
+ * Create a new formatter for demo_text_field text field.
  *
  * @FieldFormatter(
  *   id = "device_specific_formatter",
@@ -51,7 +50,7 @@ class TextFieldFormatter extends FormatterBase {
     foreach ($items as $delta => $item) {
 
       if (!empty($item->options['desktop'])) {
-        $desktop =  $item->options['desktop'];
+        $desktop = $item->options['desktop'];
       }
 
       if (!empty($item->options['tablet'])) {
@@ -59,12 +58,12 @@ class TextFieldFormatter extends FormatterBase {
       }
 
       if (!empty($item->options['mobile'])) {
-        $mobile =  $item->options['mobile'];
+        $mobile = $item->options['mobile'];
       }
 
       $elements[$delta] = [
         '#type' => 'markup',
-        '#markup' => '<div class = "viewport-field mob ">'.$mobile.'</div><div class = "viewport-field tab ">'.$tablet.'</div><div class = "viewport-field desk">'.$desktop.'</div>',
+        '#markup' => '<div class = "viewport-field mob ">' . $mobile . '</div><div class = "viewport-field tab ">' . $tablet . '</div><div class = "viewport-field desk">' . $desktop . '</div>',
       ];
 
     }

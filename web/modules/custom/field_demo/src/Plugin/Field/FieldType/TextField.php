@@ -3,7 +3,6 @@
 namespace Drupal\field_demo\Plugin\Field\FieldType;
 
 use Drupal\Core\Field\FieldItemBase;
-use Drupal\Core\TypedData\DataDefinition;
 use Drupal\Core\TypedData\MapDataDefinition;
 use Drupal\Core\Field\FieldStorageDefinitionInterface;
 

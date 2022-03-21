@@ -4,7 +4,6 @@ namespace Drupal\field_demo\Plugin\Field\FieldFormatter;
 
 use Drupal\Core\Field\FormatterBase;
 use Drupal\Core\Field\FieldItemListInterface;
-use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Create a new formatter for demo_text_field text field.

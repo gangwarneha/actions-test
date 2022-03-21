@@ -8,7 +8,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -22,15 +21,23 @@ jobs:
         composer require --dev dealerdirect/phpcodesniffer-composer-installer
         composer require --dev drupal/coder
     
-    - name: Cache CS packages
-      uses: actions/cache@v2
-      with:
-        path: vendor
-        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-php-     
-         
-    - name: Check coding standards
+    - name: Fixing coding standards - phpcbf
+      id: run-phpcbf
       run: |
-        vendor/bin/phpcs
-      
+        vendor/bin/phpcbf
+        retVal=$?
+        if [ $retVal -eq 1 ] then
+            echo "Some Files Fixed"
+            echo '::set-output name=FIXED::true'
+            exit 0
+        fi
+        exit $retVal
+
+    - name: Commit Fixes
+      if: ${{ steps.run-phpcbf.outputs.FIXED }}
+      uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: Fixing phpcbf changes
+
+    - name: Check coding standards - phpcs
+      run: vendor/bin/phpcs            

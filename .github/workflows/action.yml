@@ -23,10 +23,7 @@ jobs:
     
     - name: Fixing coding standards - phpcbf
       id: run-phpcbf
-      run: |
-        vendor/bin/phpcbf
-        ./my-script.sh
-        echo '::set-output name=FIXED::true'
+      run: script.sh
         
     - name: Commit Fixes
       if: ${{ steps.run-phpcbf.outputs.FIXED }}

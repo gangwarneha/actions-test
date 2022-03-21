@@ -23,7 +23,7 @@ jobs:
     
     - name: Fixing coding standards - phpcbf
       id: run-phpcbf
-      run: ./.github/workflows/script.sh
+      run: sh ./.github/workflows/script.sh
         
     - name: Commit Fixes
       if: ${{ steps.run-phpcbf.outputs.FIXED }}

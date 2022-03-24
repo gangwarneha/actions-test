@@ -42,5 +42,6 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
     - name: Greeting
+      needs: phpcbf-commit-changes
       run: echo Successfully Done!!    
           

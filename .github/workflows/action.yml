@@ -18,6 +18,8 @@ jobs:
   phpcbf-commit-changes:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v2
+    
     - name: Install PHP CodeSniffer
       run: |
         composer require --dev dealerdirect/phpcodesniffer-composer-installer

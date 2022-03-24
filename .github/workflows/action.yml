@@ -40,7 +40,7 @@ jobs:
       run: vendor/bin/phpcs
 
   Greeting:
-    needs: [checkout-composer-validate, phpcbf-commit-changes]
+    needs: phpcbf-commit-changes
     runs-on: ubuntu-latest
     steps: 
     - name: Greeting

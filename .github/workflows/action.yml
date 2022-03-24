@@ -7,15 +7,15 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  checkout-composer-validate:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
 
     - name: Validate composer.json and composer.lock
       run: composer validate --strict
- 
+
+  phpcbf-commit-changes:
     - name: Install PHP CodeSniffer
       run: |
         composer require --dev dealerdirect/phpcodesniffer-composer-installer
@@ -31,5 +31,8 @@ jobs:
       with:
         commit_message: Fixing phpcbf changes 
 
+  phpcs-checks:
     - name: Check coding standards - phpcs
-      run: vendor/bin/phpcs       
+      if: ${{ always() }}
+      needs: [checkout-composer-validate, phpcbf-commit-changes] 
+      run: vendor/bin/phpcs        

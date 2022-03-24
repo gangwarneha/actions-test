@@ -36,7 +36,5 @@ jobs:
   phpcs-checks:
     runs-on: ubuntu-latest
     steps:
-    - name: Check coding standards - phpcs
-      if: ${{ always() }}
-      needs: [checkout-composer-validate, phpcbf-commit-changes] 
+    - name: Check coding standards - phpcs 
       run: vendor/bin/phpcs        

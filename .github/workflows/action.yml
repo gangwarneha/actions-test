@@ -42,6 +42,5 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
     - name: Greeting
-      needs: [checkout-composer-validate, phpcbf-commit-changes]
       run: echo Successfully Done!!    
           

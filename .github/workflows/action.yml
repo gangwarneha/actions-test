@@ -31,10 +31,8 @@ jobs:
       if: ${{ steps.run-phpcbf.outputs.FIXED }}
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
-        commit_message: Fixing phpcbf changes 
+        commit_message: Fixing phpcbf changes
 
-  phpcs-checks:
-    runs-on: ubuntu-latest
-    steps:
     - name: Check coding standards - phpcs 
-      run: vendor/bin/phpcs        
+      run: vendor/bin/phpcs
+          

@@ -16,6 +16,8 @@ jobs:
       run: composer validate --strict
 
   phpcbf-commit-changes:
+    runs-on: ubuntu-latest
+    steps:
     - name: Install PHP CodeSniffer
       run: |
         composer require --dev dealerdirect/phpcodesniffer-composer-installer
@@ -32,6 +34,8 @@ jobs:
         commit_message: Fixing phpcbf changes 
 
   phpcs-checks:
+    runs-on: ubuntu-latest
+    steps:
     - name: Check coding standards - phpcs
       if: ${{ always() }}
       needs: [checkout-composer-validate, phpcbf-commit-changes] 

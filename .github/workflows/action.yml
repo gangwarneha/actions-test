@@ -16,7 +16,6 @@ jobs:
       run: composer validate --strict
 
   phpcbf-commit-changes:
-    needs: checkout-composer-validate
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -40,7 +39,6 @@ jobs:
       run: vendor/bin/phpcs
 
   Greeting:
-    needs: phpcbf-commit-changes
     runs-on: ubuntu-latest
     steps: 
     - name: Greeting

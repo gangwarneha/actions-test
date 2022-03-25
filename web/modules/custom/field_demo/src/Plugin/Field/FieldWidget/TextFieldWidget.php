@@ -17,13 +17,11 @@ use Drupal\Core\Form\FormStateInterface;
  *   }
  * )
  */
-
 class TextFieldWidget extends WidgetBase {
 
   /**
    * {@inheritdoc}
    */
-
   public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state) {
     $item = $items[$delta];
 
@@ -52,7 +50,6 @@ class TextFieldWidget extends WidgetBase {
   /**
    * {@inheritdoc}
    */
-  
   public function massageFormValues(array $values, array $form, FormStateInterface $form_state) {
     return array_map(
       function (array $value) {

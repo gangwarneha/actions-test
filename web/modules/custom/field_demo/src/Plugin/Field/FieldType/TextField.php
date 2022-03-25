@@ -16,11 +16,13 @@ use Drupal\Core\Field\FieldStorageDefinitionInterface;
  *   default_widget = "device_specific_widget",
  * )
  */
+
 class TextField extends FieldItemBase {
 
   /**
    * {@inheritdoc}
    */
+
   public static function schema(FieldStorageDefinitionInterface $field_definition) {
     return [
       'columns' => [
@@ -37,6 +39,7 @@ class TextField extends FieldItemBase {
   /**
    * {@inheritdoc}
    */
+
   public static function propertyDefinitions(FieldStorageDefinitionInterface $field_definition) {
 
     $properties['options'] = MapDataDefinition::create()
@@ -48,6 +51,7 @@ class TextField extends FieldItemBase {
   /**
    * {@inheritdoc}
    */
+
   public function isEmpty() {
     $value = $this->get('options')->getValue();
 

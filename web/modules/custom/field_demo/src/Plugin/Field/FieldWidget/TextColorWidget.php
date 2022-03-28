@@ -17,11 +17,13 @@ use Drupal\Core\Form\FormStateInterface;
  *   }
  * )
  */
+
 class TextColorWidget extends WidgetBase {
 
   /**
    * {@inheritdoc}
    */
+
   public static function defaultSettings() {
     return [
       'default_color' => '#F202F2',
@@ -31,6 +33,7 @@ class TextColorWidget extends WidgetBase {
   /**
    * {@inheritdoc}
    */
+
   public function settingsForm(array $form, FormStateInterface $form_state) {
     $elements = [];
 
@@ -46,6 +49,7 @@ class TextColorWidget extends WidgetBase {
   /**
    * {@inheritdoc}
    */
+
   public function settingsSummary() {
     $summary = [];
 
@@ -61,6 +65,7 @@ class TextColorWidget extends WidgetBase {
   /**
    * {@inheritdoc}
    */
+
   public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state) {
     $element['value']['icon_field'] = $element + [
       '#type' => 'textfield',

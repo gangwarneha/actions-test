@@ -2,7 +2,8 @@
 
 namespace Drupal\field_demo\Plugin\Field\FieldFormatter;
 
-use Drupal\Core\Field\FormatterBase;
+use Drupal\Core\Field\FormatterBase
+
 use Drupal\Core\Field\FieldItemListInterface;
 
 /**
@@ -16,11 +17,13 @@ use Drupal\Core\Field\FieldItemListInterface;
  *   }
  * )
  */
+
 class TextFieldFormatter extends FormatterBase {
 
   /**
    * {@inheritdoc}
    */
+
   public static function defaultSettings() {
     return [
       'mob' => 356,
@@ -31,6 +34,7 @@ class TextFieldFormatter extends FormatterBase {
   /**
    * {@inheritdoc}
    */
+
   public function settingsSummary() {
     $summary = [];
     $summary[] = $this->t('Show text with styles definition per field');
@@ -41,6 +45,7 @@ class TextFieldFormatter extends FormatterBase {
   /**
    * {@inheritdoc}
    */
+  
   public function viewElements(FieldItemListInterface $items, $langcode) {
     $elements = [];
 

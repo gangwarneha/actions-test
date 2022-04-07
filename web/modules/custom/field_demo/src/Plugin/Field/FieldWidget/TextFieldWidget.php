@@ -26,22 +26,22 @@ class TextFieldWidget extends WidgetBase {
     $item = $items[$delta];
 
     $element['options']['desktop'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Desktop content'),
-      '#default_value' => !empty($item->options['desktop']) ? $item->options['desktop'] : FALSE,
+        '#type' => 'textfield',
+        '#title' => $this->t('Desktop content'),
+      '#default_value' => !empty($item->options['desktop']) ? $item->options['desktop'] : false,
     ];
     $element['options']['tablet'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('Tablet content'),
-      '#default_value' => !empty($item->options['tablet']) ? $item->options['tablet'] : FALSE,
+        '#title' => $this->t('Tablet content'),
+      '#default_value' => !empty($item->options['tablet']) ? $item->options['tablet'] : false,
     ];
     $element['options']['mobile'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Mobile content'),
-      '#default_value' => !empty($item->options['mobile']) ? $item->options['mobile'] : FALSE,
-    ];
+        '#default_value' => !empty($item->options['mobile']) ? $item->options['mobile'] : false,
+      ];
 
-    return $element;
+      return $element;
   }
 
   /**

@@ -26,22 +26,22 @@ class TextFieldWidget extends WidgetBase {
     $item = $items[$delta];
 
     $element['options']['desktop'] = [
-      '#type' => 'textfield',
+         '#type' => 'textfield',
       '#title' => $this->t('Desktop content'),
-      '#default_value' => !empty($item->options['desktop']) ? $item->options['desktop'] : FALSE,
+      '#default_value' => !empty($item->options['desktop']) ? $item->options['desktop'] : false,
     ];
-    $element['options']['tablet'] = [
+     $element['options']['tablet'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('Tablet content'),
-      '#default_value' => !empty($item->options['tablet']) ? $item->options['tablet'] : FALSE,
+        '#title' => $this->t('Tablet content'),
+      '#default_value' => !empty($item->options['tablet']) ? $item->options['tablet'] : false,
     ];
     $element['options']['mobile'] = [
-      '#type' => 'textfield',
+        '#type' => 'textfield',
       '#title' => $this->t('Mobile content'),
-      '#default_value' => !empty($item->options['mobile']) ? $item->options['mobile'] : FALSE,
+       '#default_value' => !empty($item->options['mobile']) ? $item->options['mobile'] : false,
     ];
 
-    return $element;
+      return $element;
   }
 
   /**
@@ -49,12 +49,12 @@ class TextFieldWidget extends WidgetBase {
    */
   public function massageFormValues(array $values, array $form, FormStateInterface $form_state) {
     return array_map(
-      function (array $value) {
+        function (array $value) {
         if (isset($value['options'])) {
           $value['options'] = array_filter(
             $value['options'],
             function ($attribute) {
-              return $attribute !== "";
+                return $attribute !== "";
             }
           );
         }

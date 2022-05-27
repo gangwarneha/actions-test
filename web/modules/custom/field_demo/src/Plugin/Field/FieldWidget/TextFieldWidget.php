@@ -24,10 +24,11 @@ class TextFieldWidget extends WidgetBase {
    */
   public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state) {
     $item = $items[$delta];
+    $stringTranslation = \Drupal::service('string_translation');
 
     $element['options']['desktop'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('Desktop content'),
+      '#title' => $stringTranslation->translate('About'),
       '#default_value' => !empty($item->options['desktop']) ? $item->options['desktop'] : FALSE,
     ];
     $element['options']['tablet'] = [

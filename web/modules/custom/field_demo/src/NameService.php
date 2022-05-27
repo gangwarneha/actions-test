@@ -8,7 +8,9 @@ use Drupal\Core\Session\AccountProxy;
  * NameService is a simple example of a Drupal 8/9 service.
  */
 class NameService {
-
+  /**
+   * Private variable.
+   */
   private $currentUser;
 
   /**

@@ -9,7 +9,7 @@ use Drupal\Core\Session\AccountProxy;
  */
 class NameService {
   /**
-   * Private variable.
+   * {@inheritdoc}
    */
   private $currentUser;
 

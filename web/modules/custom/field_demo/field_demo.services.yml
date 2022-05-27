@@ -1,4 +1,5 @@
 services:
     field_demo.name:
-        class: Drupal\field_demo\NameService
+        class: 'Drupal\field_demo\NameService'
         arguments: ['@current_user']
+        

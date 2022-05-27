@@ -60,7 +60,7 @@ class TextFieldFormatter extends FormatterBase {
 
       $elements[$delta] = [
         '#type' => 'markup',
-        '#markup' => '<div class = "userview">'. $currentUser . '</div><div class = "viewport-field mob ">' . $mobile . '</div><div class = "viewport-field tab ">' . $tablet . '</div><div class = "viewport-field desk">' . $desktop . '</div>',
+        '#markup' => '<div class = "userview">' . $currentUser . '</div><div class = "viewport-field mob ">' . $mobile . '</div><div class = "viewport-field tab ">' . $tablet . '</div><div class = "viewport-field desk">' . $desktop . '</div>',
       ];
 
     }

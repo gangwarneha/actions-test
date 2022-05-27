@@ -43,7 +43,7 @@ class TextFieldFormatter extends FormatterBase {
    */
   public function viewElements(FieldItemListInterface $items, $langcode) {
     $elements = [];
-
+    $currentUser = \Drupal::currentUser();
     foreach ($items as $delta => $item) {
 
       if (!empty($item->options['desktop'])) {
@@ -60,7 +60,7 @@ class TextFieldFormatter extends FormatterBase {
 
       $elements[$delta] = [
         '#type' => 'markup',
-        '#markup' => '<div class = "viewport-field mob ">' . $mobile . '</div><div class = "viewport-field tab ">' . $tablet . '</div><div class = "viewport-field desk">' . $desktop . '</div>',
+        '#markup' => '<div class = "userview">'. $currentUser . '</div><div class = "viewport-field mob ">' . $mobile . '</div><div class = "viewport-field tab ">' . $tablet . '</div><div class = "viewport-field desk">' . $desktop . '</div>',
       ];
 
     }

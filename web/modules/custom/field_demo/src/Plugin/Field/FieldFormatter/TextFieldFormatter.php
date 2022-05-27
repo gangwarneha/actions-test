@@ -18,7 +18,9 @@ use Drupal\Core\Field\FieldItemListInterface;
  */
 class TextFieldFormatter extends FormatterBase {
 
-
+  /**
+   *
+   */
   public static function defaultSettings() {
     return [
       'mob' => 356,

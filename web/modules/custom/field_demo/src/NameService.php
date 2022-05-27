@@ -24,4 +24,5 @@ class NameService {
   public function whoAreYou() {
     return $this->currentUser->getDisplayName();
   }
+
 }

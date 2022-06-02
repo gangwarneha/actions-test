@@ -43,8 +43,8 @@ class TextFieldFormatter extends FormatterBase {
    */
   public function viewElements(FieldItemListInterface $items, $langcode) {
     $elements = [];
-     $currentUser = \Drupal::currentUser();
-    //$currentUser = \Drupal::field_demo . name()->getDisplayName();
+    $currentUser = \Drupal::currentUser();
+    // $currentUser = \Drupal::field_demo . name()->getDisplayName();
     foreach ($items as $delta => $item) {
 
       if (!empty($item->options['desktop'])) {

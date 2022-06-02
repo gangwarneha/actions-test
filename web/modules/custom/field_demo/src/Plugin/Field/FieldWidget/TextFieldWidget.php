@@ -19,26 +19,24 @@ use Drupal\Core\Form\FormStateInterface;
  */
 class TextFieldWidget extends WidgetBase {
 
-  /**
-   * {@inheritdoc}
-   */
+  
   public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state) {
     $item = $items[$delta];
 
     $element['options']['desktop'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('Desktop content'),
-      '#default_value' => !empty($item->options['desktop']) ? $item->options['desktop'] : FALSE,
+        '#title' => $this->t('Desktop content'),
+      '#default_value' => !empty($item->options['desktop']) ? $item->options['desktop'] : false,
     ];
     $element['options']['tablet'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('Tablet content'),
-      '#default_value' => !empty($item->options['tablet']) ? $item->options['tablet'] : FALSE,
+        '#title' => $this->t('Tablet content'),
+      '#default_value' => !empty($item->options['tablet']) ? $item->options['tablet'] : false,
     ];
     $element['options']['mobile'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('Mobile content'),
-      '#default_value' => !empty($item->options['mobile']) ? $item->options['mobile'] : FALSE,
+        '#title' => $this->t('Mobile content'),
+      '#default_value' => !empty($item->options['mobile']) ? $item->options['mobile'] : false,
     ];
 
     return $element;

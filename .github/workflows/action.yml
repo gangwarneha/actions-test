@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  Job 1:
+  Job_1:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -15,7 +15,7 @@ jobs:
     - name: Validate composer.json and composer.lock
       run: composer validate --strict
 
-  Job 2:
+  Job_2:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -37,7 +37,7 @@ jobs:
     - name: Check coding standards - phpcs 
       run: vendor/bin/phpcs
 
-  Job 3:
+  Job_3:
     runs-on: ubuntu-latest
     steps: 
     - name: Greeting

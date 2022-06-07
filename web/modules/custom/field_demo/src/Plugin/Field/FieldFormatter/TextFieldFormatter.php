@@ -38,7 +38,9 @@ class TextFieldFormatter extends FormatterBase {
     return $summary;
   }
 
- 
+  /**
+   *
+   */
   public function viewElements(FieldItemListInterface $items, $langcode) {
     $elements = [];
     // $currentUser = \Drupal::currentUser();
